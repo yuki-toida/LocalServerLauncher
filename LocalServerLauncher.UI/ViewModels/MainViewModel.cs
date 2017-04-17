@@ -22,14 +22,15 @@ namespace LocalServerLauncher.UI.ViewModels
         {
             _dotnetService = new DotnetService();
             _dbService = new DbService(AppConfig.DatabaseName, AppConfig.ConnectionString);
-            _notInstalledDotnet = !EnvironmentPathUtility.Exists(DotnetService.ExeName);
-            _notInstalledDb = !EnvironmentPathUtility.Exists(DbService.ExeName);
+
+            _needDotnet = _dotnetService.NeedInstall(AppConfig.DotnetCoreSdkVersion);
+            _needDb = _dbService.NeedInstall();
         }
 
         private readonly DotnetService _dotnetService;
         private readonly DbService _dbService;
-        private bool _notInstalledDotnet;
-        private bool _notInstalledDb;
+        private bool _needDotnet;
+        private bool _needDb;
 
         // DI from xaml
         public IDialogCoordinator DialogCoordinator { get; set; }
@@ -41,29 +42,29 @@ namespace LocalServerLauncher.UI.ViewModels
         public ICommand RunCommand => new AsyncCommand(Run);
         public ICommand KillCommand => new SyncCommand(_dotnetService.Kill);
 
-        public Visibility Install => NotInstalledDotnet || NotInstalledDb ? Visibility.Visible : Visibility.Collapsed;
-        public Visibility Launcher => Install == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility NeedInstall => NeedDotnet || NeedDb ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility Launcher => NeedInstall == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 
-        public bool NotInstalledDotnet
+        public bool NeedDotnet
         {
-            get => _notInstalledDotnet;
+            get => _needDotnet;
             set
             {
-                _notInstalledDotnet = value;
-                NotifyPropertyChanged(nameof(NotInstalledDotnet));
-                NotifyPropertyChanged(nameof(Install));
+                _needDotnet = value;
+                NotifyPropertyChanged(nameof(NeedDotnet));
+                NotifyPropertyChanged(nameof(NeedInstall));
                 NotifyPropertyChanged(nameof(Launcher));
             }
         }
 
-        public bool NotInstalledDb
+        public bool NeedDb
         {
-            get => _notInstalledDb;
+            get => _needDb;
             set
             {
-                _notInstalledDb = value;
-                NotifyPropertyChanged(nameof(NotInstalledDb));
-                NotifyPropertyChanged(nameof(Install));
+                _needDb = value;
+                NotifyPropertyChanged(nameof(NeedDb));
+                NotifyPropertyChanged(nameof(NeedInstall));
                 NotifyPropertyChanged(nameof(Launcher));
             }
         }
@@ -78,14 +79,14 @@ namespace LocalServerLauncher.UI.ViewModels
         {
             Installer.Install(AppConfig.DotnetCoreSdkInstaller, AppConfig.ComponentsPath);
             if (EnvironmentPathUtility.Exists(DotnetService.ExeName))
-                NotInstalledDotnet = false;
+                NeedDotnet = false;
         }
 
         public void InstallDb()
         {
             Installer.Install(AppConfig.SqlLocalDbInstaller, AppConfig.ComponentsPath);
             if (EnvironmentPathUtility.Exists(DbService.ExeName))
-                NotInstalledDb = false;
+                NeedDb = false;
         }
 
         public async Task Import()

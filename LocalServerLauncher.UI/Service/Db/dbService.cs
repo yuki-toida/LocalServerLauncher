@@ -3,6 +3,7 @@ using System.Data.SqlLocalDb;
 using System.IO;
 using System.Threading.Tasks;
 using LocalServerLauncher.UI.Service.Dialog;
+using LocalServerLauncher.UI.Utility;
 using MahApps.Metro.Controls.Dialogs;
 using Microsoft.SqlServer.Dac;
 
@@ -11,6 +12,11 @@ namespace LocalServerLauncher.UI.Service.Db
     public class DbService
     {
         public const string ExeName = "SqlLocalDB";
+
+        public bool NeedInstall()
+        {
+            return !EnvironmentPathUtility.Exists(ExeName);
+        }
 
         private readonly string _databaseName;
         private readonly DacServices _dacService;

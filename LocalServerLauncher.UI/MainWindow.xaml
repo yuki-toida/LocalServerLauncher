@@ -22,10 +22,10 @@
     </controls:MetroWindow.DataContext>
     <DockPanel>
         <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-            <StackPanel Orientation="Vertical" Width="200" Visibility="{Binding Install}">
+            <StackPanel Orientation="Vertical" Width="200" Visibility="{Binding NeedInstall}">
                 <TextBlock FontSize="20" Text="Install" TextAlignment="Center" Margin="0 20" />
-                <Button Content=".NET Core SDK" Margin="15" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding InstallDotnetCommand}" IsEnabled="{Binding NotInstalledDotnet}" />
-                <Button Content="SqlLocalDB" Margin="15" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding InstallDbCommand}" IsEnabled="{Binding NotInstalledDb}" />
+                <Button Content=".NET Core SDK" Margin="15" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding InstallDotnetCommand}" IsEnabled="{Binding NeedDotnet}" />
+                <Button Content="SqlLocalDB" Margin="15" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding InstallDbCommand}" IsEnabled="{Binding NeedDb}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding Launcher}">
                 <StackPanel Orientation="Vertical" Width="200" VerticalAlignment="Top" Margin="30 0">

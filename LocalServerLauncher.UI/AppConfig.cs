@@ -9,6 +9,7 @@ namespace LocalServerLauncher.UI
         public static readonly string DatabaseName = ConfigurationManager.AppSettings["DatabaseName"];
         public static readonly string ConnectionString = ConfigurationManager.ConnectionStrings[DatabaseName].ConnectionString;
 
+        public static readonly string DotnetCoreSdkVersion = ConfigurationManager.AppSettings["DotnetCoreSdkVersion"];
         public static readonly string DotnetCoreSdkInstaller = ConfigurationManager.AppSettings["DotnetCoreSdkInstaller"];
         public static readonly string SqlLocalDbInstaller = ConfigurationManager.AppSettings["SqlLocalDbInstaller"];
 
