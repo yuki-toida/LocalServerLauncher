@@ -6,8 +6,8 @@ namespace LocalServerLauncher.UI
 {
     public static class AppConfig
     {
-        public static readonly string DatabaseName = ConfigurationManager.AppSettings["DatabaseName"];
-        public static readonly string ConnectionString = ConfigurationManager.ConnectionStrings[DatabaseName].ConnectionString;
+        public static readonly string DefaultConnectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+        public static readonly string DefaultDatabase = ConfigurationManager.AppSettings["DefaultDatabase"];
 
         public static readonly string DotnetCoreSdkVersion = ConfigurationManager.AppSettings["DotnetCoreSdkVersion"];
         public static readonly string DotnetCoreSdkInstaller = ConfigurationManager.AppSettings["DotnetCoreSdkInstaller"];

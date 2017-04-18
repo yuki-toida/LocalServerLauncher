@@ -21,8 +21,7 @@ namespace LocalServerLauncher.UI.ViewModels
         public MainViewModel()
         {
             _dotnetService = new DotnetService();
-            _dbService = new DbService(AppConfig.DatabaseName, AppConfig.ConnectionString);
-
+            _dbService = new DbService(AppConfig.DefaultDatabase, AppConfig.DefaultConnectionString);
             _needDotnet = _dotnetService.NeedInstall(AppConfig.DotnetCoreSdkVersion);
             _needDb = _dbService.NeedInstall();
         }
@@ -42,8 +41,7 @@ namespace LocalServerLauncher.UI.ViewModels
         public ICommand RunCommand => new AsyncCommand(Run);
         public ICommand KillCommand => new SyncCommand(_dotnetService.Kill);
 
-        public Visibility NeedInstall => NeedDotnet || NeedDb ? Visibility.Visible : Visibility.Collapsed;
-        public Visibility Launcher => NeedInstall == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+        public bool CanLaunch => !NeedDotnet && !NeedDb;
 
         public bool NeedDotnet
         {
@@ -52,8 +50,7 @@ namespace LocalServerLauncher.UI.ViewModels
             {
                 _needDotnet = value;
                 NotifyPropertyChanged(nameof(NeedDotnet));
-                NotifyPropertyChanged(nameof(NeedInstall));
-                NotifyPropertyChanged(nameof(Launcher));
+                NotifyPropertyChanged(nameof(CanLaunch));
             }
         }
 
@@ -64,8 +61,7 @@ namespace LocalServerLauncher.UI.ViewModels
             {
                 _needDb = value;
                 NotifyPropertyChanged(nameof(NeedDb));
-                NotifyPropertyChanged(nameof(NeedInstall));
-                NotifyPropertyChanged(nameof(Launcher));
+                NotifyPropertyChanged(nameof(CanLaunch));
             }
         }
 

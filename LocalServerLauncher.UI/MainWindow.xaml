@@ -12,7 +12,7 @@
     BorderThickness="1"
     ResizeMode="NoResize"
     mc:Ignorable="d"
-    Title="LocalServerLauncher" Height="350" Width="525">
+    Title="LocalServerLauncher" Height="320" Width="400">
     <controls:MetroWindow.DataContext>
         <viewModels:MainViewModel>
             <viewModels:MainViewModel.DialogCoordinator>
@@ -22,22 +22,22 @@
     </controls:MetroWindow.DataContext>
     <DockPanel>
         <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-            <StackPanel Orientation="Vertical" Width="200" Visibility="{Binding NeedInstall}">
-                <TextBlock FontSize="20" Text="Install" TextAlignment="Center" Margin="0 20" />
-                <Button Content=".NET Core SDK" Margin="15" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding InstallDotnetCommand}" IsEnabled="{Binding NeedDotnet}" />
-                <Button Content="SqlLocalDB" Margin="15" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding InstallDbCommand}" IsEnabled="{Binding NeedDb}" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 15 0 0" >
+                <StackPanel Orientation="Vertical" Width="150" Margin="0 0 15 0">
+                    <TextBlock FontSize="20" Text="Database" TextAlignment="Center"/>
+                    <Button Content="Import" Margin="0 15 0 0" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding ImportCommand}" IsEnabled="{Binding CanLaunch}" />
+                    <Button Content="Export" Margin="0 15 0 0" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding ExportCommand}" IsEnabled="{Binding CanLaunch}" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="150" Margin="15 0 0 0">
+                    <TextBlock FontSize="20" Text="WebServer" TextAlignment="Center"/>
+                    <Button Content="Run" Margin="0 15 0 0" Style="{DynamicResource AccentedSquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding RunCommand}" IsEnabled="{Binding CanLaunch}" />
+                    <Button Content="Kill" Margin="0 15 0 0" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding KillCommand}" IsEnabled="{Binding CanLaunch}" />
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding Launcher}">
-                <StackPanel Orientation="Vertical" Width="200" VerticalAlignment="Top" Margin="30 0">
-                    <TextBlock FontSize="20" Text="Database" TextAlignment="Center" Margin="0 20" />
-                    <Button Content="Import" Margin="15" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding ImportCommand}" />
-                    <Button Content="Export" Margin="15" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding ExportCommand}" />
-                </StackPanel>
-                <StackPanel Orientation="Vertical" Width="200" VerticalAlignment="Top" Margin="30 0">
-                    <TextBlock FontSize="20" Text="WebServer" TextAlignment="Center" Margin="0 20" />
-                    <Button Content="Run" Margin="15" Style="{DynamicResource AccentedSquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding RunCommand}" />
-                    <Button Content="Kill" Margin="15" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding KillCommand}" />
-                </StackPanel>
+            <StackPanel Orientation="Vertical" Width="150">
+                <TextBlock FontSize="20" Text="Install" TextAlignment="Center" Margin="0 15 0 0" />
+                <Button Content=".NET Core SDK" Margin="0 15 0 0" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding InstallDotnetCommand}" IsEnabled="{Binding NeedDotnet}" />
+                <Button Content="SqlLocalDB" Margin="0 15 0 0" Style="{DynamicResource SquareButtonStyle}" controls:ControlsHelper.ContentCharacterCasing="Normal" Command="{Binding InstallDbCommand}" IsEnabled="{Binding NeedDb}" />
             </StackPanel>
         </StackPanel>
     </DockPanel>
