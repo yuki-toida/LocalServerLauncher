@@ -12,7 +12,7 @@ namespace LocalServerLauncher.UI.Service.Dotnet
     {
         public const string ExeName = "dotnet";
 
-        private string GetVersion()
+        private static string GetVersion()
         {
             using (var process = new Process())
             {
@@ -38,7 +38,9 @@ namespace LocalServerLauncher.UI.Service.Dotnet
             if (!EnvironmentPathUtility.Exists(ExeName))
                 return true;
 
-            return GetVersion() != version;
+            var currentVersion = int.Parse(GetVersion().Replace(".", ""));
+            var targetVersion = int.Parse(version.Replace(".", ""));
+            return  currentVersion < targetVersion;
         }
 
         public async Task Run(ProgressDialogController progress)
