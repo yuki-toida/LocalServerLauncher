@@ -12,7 +12,7 @@
     BorderThickness="1"
     ResizeMode="NoResize"
     mc:Ignorable="d"
-    Title="LocalServerLauncher" Height="320" Width="400">
+    Title="LocalServerLauncher" Height="350" Width="400">
     <controls:MetroWindow.DataContext>
         <viewModels:MainViewModel>
             <viewModels:MainViewModel.DialogCoordinator>
