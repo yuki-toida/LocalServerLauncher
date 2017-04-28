@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace LocalServerLauncher.UI.Command
+namespace LocalServerLauncher.Command
 {
     public abstract class SyncCommandBase : ICommand
     {

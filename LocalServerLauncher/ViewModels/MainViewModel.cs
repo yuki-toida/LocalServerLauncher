@@ -8,13 +8,13 @@ using MahApps.Metro.Controls.Dialogs;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using LocalServerLauncher.UI.Command;
-using LocalServerLauncher.UI.Service.Db;
-using LocalServerLauncher.UI.Service.Dialog;
-using LocalServerLauncher.UI.Service.Dotnet;
-using LocalServerLauncher.UI.Utility;
+using LocalServerLauncher.Command;
+using LocalServerLauncher.Service.Db;
+using LocalServerLauncher.Service.Dialog;
+using LocalServerLauncher.Service.Dotnet;
+using LocalServerLauncher.Utility;
 
-namespace LocalServerLauncher.UI.ViewModels
+namespace LocalServerLauncher.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {

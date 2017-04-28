@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LocalServerLauncher.UI.Command
+namespace LocalServerLauncher.Command
 {
     public class SyncCommand : SyncCommandBase
     {

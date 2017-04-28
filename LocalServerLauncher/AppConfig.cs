@@ -2,7 +2,7 @@
 using System.IO;
 using System.Reflection;
 
-namespace LocalServerLauncher.UI
+namespace LocalServerLauncher
 {
     public static class AppConfig
     {

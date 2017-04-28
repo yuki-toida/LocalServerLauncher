@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace LocalServerLauncher.UI.Command
+namespace LocalServerLauncher.Command
 {
     public class AsyncCommand : AsyncCommandBase
     {

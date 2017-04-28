@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace LocalServerLauncher.UI.Command
+namespace LocalServerLauncher.Command
 {
     public interface IAsyncCommand : ICommand
     {

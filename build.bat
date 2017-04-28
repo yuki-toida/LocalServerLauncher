@@ -2,7 +2,7 @@
 @echo off
 
 set PATH=%PATH%;%PROGRAMFILES(x86)%\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\
-set OutputPath=%USERPROFILE%\Desktop\LocalServerLauncher
+set OutputPath=%CD%\bin\
 rd /s /q %OutputPath%
 
 for /f %%s in ('dir /b *.sln') do set Solution=%%s

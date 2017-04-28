@@ -1,4 +1,4 @@
-﻿namespace LocalServerLauncher.UI
+﻿namespace LocalServerLauncher
 {
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック

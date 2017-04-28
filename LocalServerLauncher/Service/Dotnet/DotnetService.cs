@@ -2,11 +2,11 @@
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
-using LocalServerLauncher.UI.Utility;
+using LocalServerLauncher.Utility;
 using MahApps.Metro.Controls.Dialogs;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
-namespace LocalServerLauncher.UI.Service.Dotnet
+namespace LocalServerLauncher.Service.Dotnet
 {
     public class DotnetService
     {

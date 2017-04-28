@@ -3,7 +3,7 @@ using System.IO.Compression;
 using System.Windows;
 using System.Reflection;
 
-namespace LocalServerLauncher.UI
+namespace LocalServerLauncher
 {
     /// <summary>
     /// App.xaml の相互作用ロジック

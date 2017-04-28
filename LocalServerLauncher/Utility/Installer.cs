@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocalServerLauncher.UI.Utility
+namespace LocalServerLauncher.Utility
 {
     public static class Installer
     {

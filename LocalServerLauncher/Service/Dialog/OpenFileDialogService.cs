@@ -1,17 +1,16 @@
 ﻿using System;
 using Microsoft.Win32;
 
-namespace LocalServerLauncher.UI.Service.Dialog
+namespace LocalServerLauncher.Service.Dialog
 {
-    public class SaveFileDialogService
+    public class OpenFileDialogService
     {
-        public bool Show(string fileName, Action<string> successAction, Action failAction = null)
+        public bool Show(Action<string> successAction, Action failAction = null)
         {
-            var dialog = new SaveFileDialog()
+            var dialog = new OpenFileDialog
             {
-                Title = "bacpacファイルを保存する場所を選択してください",
+                Title = "bacpacファイルを選択してください",
                 Filter = "bacpacファイル(*.bacpac)|*.bacpac",
-                FileName = fileName,
             };
 
             if (dialog.ShowDialog() == true)

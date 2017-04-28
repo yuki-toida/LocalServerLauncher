@@ -2,12 +2,12 @@
 using System.Data.SqlLocalDb;
 using System.IO;
 using System.Threading.Tasks;
-using LocalServerLauncher.UI.Service.Dialog;
-using LocalServerLauncher.UI.Utility;
+using LocalServerLauncher.Service.Dialog;
+using LocalServerLauncher.Utility;
 using MahApps.Metro.Controls.Dialogs;
 using Microsoft.SqlServer.Dac;
 
-namespace LocalServerLauncher.UI.Service.Db
+namespace LocalServerLauncher.Service.Db
 {
     public class DbService
     {

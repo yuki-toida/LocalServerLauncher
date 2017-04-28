@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7FC5B19B-235D-4480-AF3E-C0C137E29396}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>LocalServerLauncher.UI</RootNamespace>
-    <AssemblyName>LocalServerLauncher.UI</AssemblyName>
+    <RootNamespace>LocalServerLauncher</RootNamespace>
+    <AssemblyName>LocalServerLauncher</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -26,7 +26,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>LocalServerLauncher</ProductName>
     <PublisherName>y.toida</PublisherName>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -177,7 +177,6 @@
     <Content Include="Components.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="LocalServerLauncher.UI_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
